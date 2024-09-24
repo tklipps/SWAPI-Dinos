@@ -2,6 +2,7 @@ let nameH1;
 let releaseDate;
 let director;
 let episode;
+let producer;
 let planetsUl;
 let charactersUl;
 const baseUrl = `http://localhost:9001/api`;
@@ -11,6 +12,7 @@ addEventListener('DOMContentLoaded', () => {
     nameH1 = document.querySelector('h1#film');
     releaseDate = document.querySelector('span#release_date');
     director = document.querySelector('span#director');
+    producer = document.querySelector('span#producer');
     episode = document.querySelector('span#episode');
     planetsUl = document.querySelector('#planets>ul');
     charatersUl = document.querySelector('#characters>ul');
@@ -58,7 +60,7 @@ addEventListener('DOMContentLoaded', () => {
     releaseDate.textContent = film?.release_date;
     director.textContent = film?.director;
     episode.textContent = film?.episode_id;
-
+    producer.textContent = film?.producer;
     const planets = film?.planets?.map(planet => `<li><a href="/planet.html?id=${planet.id}">${planet.name}</li>`);
     console.log(planets);
     planetsUl.innerHTML = planets.join("");
