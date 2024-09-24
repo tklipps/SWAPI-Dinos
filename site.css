@@ -98,7 +98,21 @@ label {
   padding: 0;
 }
 
+#planets>ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
 #films>ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+#characters>ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
