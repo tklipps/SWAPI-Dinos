@@ -7,6 +7,7 @@ let director;
 let episode;
 let planetsUl;
 let charactersUl;
+const baseUrl = `http://localhost:9001/api`;
 
 // Runs on page load
 addEventListener('DOMContentLoaded', () => {
@@ -59,10 +60,10 @@ addEventListener('DOMContentLoaded', () => {
     director.textContent = film?.director;
     episode.textContent = film?.episode_id;
 
-    const planets = film?.planets.map(planet => `<li><a href="/planet.html?id=${planet.id}">${planet.name}</li>`);
+    const planets = film?.planets?.map(planet => `<li><a href="/planet.html?id=${planet.id}">${planet.name}</li>`);
     planetsUl.innerHTML = planets.join("");
 
-    const characters = film?.characters.map(character => `<li><a href="/character.html?id=${character.id}">${character.name}</li>`);
+    const characters = film?.characters?.map(character => `<li><a href="/character.html?id=${character.id}">${character.name}</li>`);
     charatersUl.innerHTML = characters.join("");
   }
 
