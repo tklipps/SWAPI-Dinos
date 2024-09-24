@@ -119,6 +119,13 @@ label {
   padding: 0;
 }
 
+#character>ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
 #charactersList div {
   padding: 20px;
   margin: 10px;
