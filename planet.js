@@ -58,9 +58,10 @@ const renderPlanet = planet => {
   climateSpan.textContent = planet?.climate;
   terrainSpan.textContent = planet?.terrain;
   diameterSpan.textContent = planet?.diameter;
-  console.log("characters: " + planet.characters);
+
   const charactersList = planet?.characters?.map(character => `<li><a href="/character.html?id=${character.id}">${character.name}</li>`)
   characterSpan.innerHTML = charactersList.join("");
+
   const filmsLis = planet?.films?.map(film => `<li><a href="/film.html?id=${film.id}">${film.title}</li>`)
   filmsUl.innerHTML = filmsLis.join("");
 }
