@@ -1,6 +1,3 @@
-const sp = new URLSearchParams(window.location.search);
-const id = sp.get('id');
-
 let nameH1;
 let releaseDate;
 let director;
@@ -11,7 +8,7 @@ const baseUrl = `http://localhost:9001/api`;
 
 // Runs on page load
 addEventListener('DOMContentLoaded', () => {
-    nameH1 = document.querySelector('h1#name');
+    nameH1 = document.querySelector('h1#film');
     releaseDate = document.querySelector('span#release_date');
     director = document.querySelector('span#director');
     episode = document.querySelector('span#episode');
@@ -19,6 +16,7 @@ addEventListener('DOMContentLoaded', () => {
     charatersUl = document.querySelector('#characters>ul');
     const sp = new URLSearchParams(window.location.search)
     const id = sp.get('id')
+    console.log("calling getFilm");
     getFilm(id)
   });
 
@@ -26,8 +24,9 @@ addEventListener('DOMContentLoaded', () => {
     let film;
     try {
       film = await fetchFilm(id)
-      film.planets = await fetchPlanets(film)
-      film.characters = await fetchCharacters(film)
+      film.planets = await fetchPlanets(film.id)
+      film.characters = await fetchCharacters(film.id)
+      console.log("read film " + JSON.stringify(film) + film.planets);
     }
     catch (ex) {
       console.error(`Error reading film ${id} data.`, ex.message);
@@ -61,6 +60,7 @@ addEventListener('DOMContentLoaded', () => {
     episode.textContent = film?.episode_id;
 
     const planets = film?.planets?.map(planet => `<li><a href="/planet.html?id=${planet.id}">${planet.name}</li>`);
+    console.log(planets);
     planetsUl.innerHTML = planets.join("");
 
     const characters = film?.characters?.map(character => `<li><a href="/character.html?id=${character.id}">${character.name}</li>`);
