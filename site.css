@@ -1,3 +1,7 @@
+/* Import a space-themed font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Reset default margins and paddings */
 body,
 div,
 h1,
@@ -10,25 +14,48 @@ p {
   padding: 0;
 }
 
+/* Root variables for theme colors and font */
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  --dark1: black;
-  --light1: white;
-  --dark2: darkblue;
-  --light2: lightblue;
-  background-color: var(--light1);
-  color: var(--dark1);
+  --font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  --color-dark1: #ffffff;
+  --color-light1: #000000;
+  --color-dark2: #00bfff;
+  --color-light2: #1e1e1e;
+  --background-color: var(--color-light1);
+  --text-color: var(--color-dark1);
+  
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
+/* General styles */
+body {
+  line-height: 1.6;
+  padding: 20px;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(135deg, #1e1e1e 0%, #000000 100%);
+  background-size: cover;
+  color: var(--color-dark1);
+}
+
+/* Button styles */
 button {
-  background-color: var(--light2);
-  color: var(--dark2);
+  background-color: var(--color-dark2);
+  color: var(--color-light1);
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 5px;
-  border: 1px solid var(--dark2);
+  border: 1px solid var(--color-dark2);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+button:hover {
+  background-color: var(--color-light2);
+  color: var(--color-dark2);
+}
+
+/* Input styles */
 input {
   display: block;
   width: 95%;
@@ -36,22 +63,34 @@ input {
   font-size: 1.1em;
   line-height: 1.5em;
   border: none;
-  border-bottom: 2px solid var(--dark2);
+  border-bottom: 2px solid var(--color-dark2);
   outline: none;
-  margin: 5px;
+  margin: 10px 0;
+  padding: 5px;
+  background-color: var(--color-light2);
+  color: var(--color-dark1);
+  transition: border-color 0.3s;
 }
 
+input:focus {
+  border-bottom-color: var(--color-dark1);
+}
+
+/* Label styles */
 label {
   font-weight: bold;
   font-size: 1.1em;
+  margin-bottom: 5px;
+  display: block;
 }
 
+/* Small text styles */
 .small {
   font-size: small;
   font-weight: normal;
 }
 
-/* Characters */
+/* Characters list styles */
 #charactersList {
   display: flex;
   flex-wrap: wrap;
@@ -60,18 +99,28 @@ label {
 }
 
 #charactersList div {
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
-  border: 1px solid var(--dark2);
+  border: 1px solid var(--color-dark2);
   border-radius: 5px;
-  color: var(--dark2);
-  background-color: var(--light2);
+  color: var(--color-dark1);
+  background-color: var(--color-light2);
   font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Character page */
+#charactersList div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Character page styles */
 h1#name {
-  margin: 50px;
+  margin: 50px 0;
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--color-dark2);
 }
 
 #generalInfo {
@@ -84,8 +133,10 @@ h1#name {
 #generalInfo p {
   padding: 20px;
   margin: 10px;
-  color: var(--dark2);
-  background-color: var(--light2);
+  color: var(--color-dark1);
+  background-color: var(--color-light2);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #generalInfo span {
@@ -93,10 +144,11 @@ h1#name {
   font-size: 1.1em;
 }
 
+/* Section styles */
 section#planets,
 section#characters,
 section#films {
-  margin: 50px;
+  margin: 50px 0;
 }
 
 section#planets ul,
@@ -112,12 +164,19 @@ section#films a {
   display: inline-block;
   text-decoration: none;
   font-size: 1.1em;
-
-  background-color: var(--light2);
-  color: var(--dark2);
+  background-color: var(--color-dark2);
+  color: var(--color-light1);
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 20px;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid var(--dark2);
+  border: 1px solid var(--color-dark2);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+section#planets a:hover,
+section#characters a:hover,
+section#films a:hover {
+  background-color: var(--color-light2);
+  color: var(--color-dark2);
 }
